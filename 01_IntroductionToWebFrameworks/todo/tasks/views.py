@@ -7,13 +7,13 @@ from django.views import View
 class ToDoView(View):
 
     def get(self, request, *args, **kwargs):
-        order = ['<li>Установить python</li>',
-                 '<li>Установить django</li>',
-                 '<li>Запустить сервер</li>',
-                 '<li>Порадоваться результату</li>',
-                 '<li>Поменять код немножко</li>']
+        order = ['Установить python',
+                 'Установить django',
+                 'Запустить сервер',
+                 'Порадоваться результату',
+                 'Поменять код немножко']
         random.shuffle(order)
+        order = ['<li>' + i_order + '</li>' for i_order in order]
+        http_string = '<ul>' + ''.join(order) + '</ul>'
 
-        return HttpResponse('<ul>'
-                            f'{"".join(order)}'
-                            '</ul>')
+        return HttpResponse(http_string)
