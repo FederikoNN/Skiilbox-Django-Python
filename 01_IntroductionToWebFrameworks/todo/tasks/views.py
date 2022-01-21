@@ -14,6 +14,6 @@ class ToDoView(View):
                  '<li>Поменять код немножко</li>']
         random.shuffle(order)
 
-        return HttpResponse('<ul>' +
-                            '\n'.join(order) +
+        return HttpResponse('<ul>'
+                            f'{"".join(order)}'
                             '</ul>')
