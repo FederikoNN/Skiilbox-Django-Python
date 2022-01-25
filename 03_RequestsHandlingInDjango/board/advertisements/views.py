@@ -37,7 +37,10 @@ class Advertisements(View):
                       {'advertisements': advertisements, 'title': title})
 
     def post(self, request):
-        msg = 'Запрос по созданию новой записи успешно выполнен'
+        num_post_requests = request.session.get('num_post_requests', 0)
+        request.session['num_post_requests'] = num_post_requests + 1
+        msg = f'Запрос по созданию новой записи успешно выполнен<br> Всего ' \
+              f'обработано {num_post_requests + 1} POST-запросов'
         return HttpResponse(msg)
 
 

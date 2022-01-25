@@ -8,4 +8,9 @@
     <li>{{ advertisement }}</li>
     {% endfor %}
 </ul>
+<form action="." method="post">{% csrf_token %}
+    <label for="your_name">введите Ваше имя: </label>
+    <input id="your_name" type="text" name="your_name">
+    <input type="submit" value="OK">
+</form>
 </html>
