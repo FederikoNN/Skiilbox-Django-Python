@@ -1,7 +1,11 @@
 <html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
 <ul>
-    <li>Мастер на час</li>
-    <li>Выведение из запоя</li>
-    <li>Услуги экскаватора-погрузчика, гидромолота, ямобура</li>
+    {% for advertisement in advertisements %}
+    <li>{{ advertisement }}</li>
+    {% endfor %}
 </ul>
 </html>
