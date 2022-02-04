@@ -18,15 +18,15 @@ class Advertisement(models.Model):
         verbose_name='дата окончания публикации')
     views_count = models.IntegerField(default=0,
                                       verbose_name='количество просмотров')
-    user_adv = models.ForeignKey('AdvertisementUser', default=None, null=True,
-                                 on_delete=models.CASCADE, blank=True,
+    user_adv = models.ForeignKey('AdvertisementUser', on_delete=models.CASCADE,
+                                 related_name='advertisements',
                                  verbose_name='автор объявления')
-    category_adv = models.ForeignKey('AdvertisementCategory', default=None,
-                                     null=True,
+    category_adv = models.ForeignKey('AdvertisementCategory',
+                                     related_name='advertisements',
                                      on_delete=models.CASCADE,
                                      verbose_name='Рубрика')
-    type_adv = models.ForeignKey('AdvertisementType', default=None, null=True,
-                                 on_delete=models.CASCADE,
+    type_adv = models.ForeignKey('AdvertisementType', on_delete=models.CASCADE,
+                                 related_name='advertisements',
                                  verbose_name='Тип объявления')
 
     def get_price_usd(self):

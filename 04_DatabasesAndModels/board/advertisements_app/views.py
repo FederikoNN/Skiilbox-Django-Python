@@ -1,5 +1,3 @@
-# from django.http import HttpResponse
-# from django.shortcuts import render
 from django.views import generic
 from django.views.generic import TemplateView
 from .models import Advertisement
@@ -29,9 +27,8 @@ class AdvertisementListView(generic.ListView):
 class AdvertisementDetailView(generic.DetailView):
     model = Advertisement
 
-    def get(self, request, *args, **kwargs):
-        self.object = self.get_object()
-        self.object.views_count += 1
-        self.object.save()
-        context = self.get_context_data(object=self.object)
-        return self.render_to_response(context)
+    def get_object(self, queryset=None):
+        item = super().get_object(queryset)
+        item.views_count += 1
+        item.save()
+        return item
