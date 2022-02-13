@@ -36,7 +36,7 @@ class NewsSinglePageView(DetailView):
         context = super().get_context_data(**kwargs)
         context['news'] = self.object
         context['comments'] = self.object.news.all()
-        context['comment_form'] = NewsCommentForm(instance=self.object)
+        context['comment_form'] = NewsCommentForm
         return context
 
     def post(self, request, **kwargs):
