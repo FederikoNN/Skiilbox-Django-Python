@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>{{ news.title }}</title>
+    <title>{{ object.title }}</title>
 </head>
 <body>
 
@@ -24,7 +24,7 @@
             <p>Комментариев нет</p>
       {% endif %}
       <h3>Добавить комментарий:</h3>
-    <form method="post" action="/news/{{ news_id }}/news_single_page/">
+    <form method="post" action="/news/{{ news.id }}/news_single_page/">
         {% csrf_token %}
         {{ comment_form.as_p }}
         <button type="submit">Сохранить</button>

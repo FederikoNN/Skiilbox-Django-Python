@@ -7,7 +7,7 @@
 <body>
 <h1>Редактирование новости</h1>
       <p><b>Новость: </b> {{ news.title }}</p>
-    <form method="post" action="/news/{{ news_id }}/news_edit/">
+    <form method="post" action="/news/{{ news.id }}/news_edit/">
         {% csrf_token %}
         {{ news_edit_form.as_p }}
         <button type="submit">Сохранить</button>

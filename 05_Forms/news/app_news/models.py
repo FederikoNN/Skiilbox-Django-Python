@@ -1,16 +1,13 @@
 from django.db import models
 
 
-# from django.forms import Textarea
-
-
 class News(models.Model):
     title = models.CharField(max_length=1000, verbose_name='название статьи')
     description = models.CharField(max_length=10000,
                                    verbose_name='содержание статьи')
     date_create = models.DateField(auto_now_add=True,
                                    verbose_name='дата публикации')
-    date_edit = models.DateField(auto_now=True,
+    date_edit = models.DateField(auto_now=False,
                                  verbose_name='дата редактирования')
     activity = models.IntegerField(default=0,
                                    verbose_name='количество комментариев')
