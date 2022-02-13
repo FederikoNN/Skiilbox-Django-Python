@@ -9,7 +9,7 @@
     <br>
     <form method="post" action="/news_creation_page/">
         {% csrf_token %}
-        {{ news_form.as_p }}
+        {{ form.as_p }}
         <button type="submit">Сохранить</button>
     </form>
 </body>

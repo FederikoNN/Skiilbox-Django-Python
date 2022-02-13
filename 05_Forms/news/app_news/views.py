@@ -1,48 +1,27 @@
+import datetime
+
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.views import View, generic
-# from django.views.generic import TemplateView
-from django.views.generic import DetailView
+from django.views.generic import DetailView, CreateView, UpdateView, ListView
 
-from .forms import NewsCreationForm, NewsCommentForm
+from .forms import NewsCommentForm
 from .models import News, Comment
 
 
-class NewsCreationFormView(View):
-    def get(self, request):
-        news_form = NewsCreationForm()
-        return render(request, 'news/news_creation_page.html',
-                      context={'news_form': news_form})
-
-    def post(self, request):
-        news_form = NewsCreationForm(request.POST)
-        if news_form.is_valid():
-            news_form.save()
-            return HttpResponseRedirect('/news_list/')
-        return render(request, 'news/news_creation_page.html',
-                      context={'news_form': news_form})
+class NewsCreationFormView(CreateView):
+    model = News
+    template_name = 'news/news_creation_page.html'
+    fields = ['title', 'description']
 
 
-class NewsEditFormView(View):
-    def get(self, request, news_id):
-        news = News.objects.get(id=news_id)
-        news_edit_form = NewsCreationForm(instance=news)
-        return render(request, 'news/news_edit.html',
-                      context={'news_edit_form': news_edit_form, 'news': news,
-                               'news_id': news_id})
-
-    def post(self, request, news_id):
-        news = News.objects.get(id=news_id)
-        news_edit_form = NewsCreationForm(request.POST, instance=news)
-        if news_edit_form.is_valid():
-            news.save()
-            return HttpResponseRedirect('/news_list')
-        return render(request, 'news/news_edit.html',
-                      context={'news_edit_form': news_edit_form, 'news': news,
-                               'news_id': news_id})
+class NewsEditFormView(UpdateView):
+    model = News
+    template_name = 'news/news_edit.html'
+    fields = ['title', 'description', 'date_edit']
+    initial = {'date_edit': datetime.datetime.now()}
 
 
-class NewsListView(generic.ListView):
+class NewsListView(ListView):
     model = News
     ordering = ['-date_create']
     template_name = 'news/news_list.html'
