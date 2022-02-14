@@ -13,9 +13,15 @@ class News(models.Model):
                                  verbose_name='дата редактирования')
     activity = models.IntegerField(default=0,
                                    verbose_name='количество комментариев')
+    is_active = models.BooleanField(default=True)
 
     def __str__(self):
-        return self.title
+        return f'"{self.title}" от {self.date_create}. Комментариев: ' \
+               f'{self.activity}'
+
+    class Meta:
+        verbose_name = 'Новости'
+        verbose_name_plural = 'Новости'
 
 
 class Comment(models.Model):
@@ -28,4 +34,8 @@ class Comment(models.Model):
                                      verbose_name='Новость')
 
     def __str__(self):
-        return self.user_name
+        return f'{self.user_name}: "{self.description[:15]}..."'
+
+    class Meta:
+        verbose_name = 'Комментарий'
+        verbose_name_plural = 'Комментарии'
