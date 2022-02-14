@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.views.generic import DetailView, CreateView, UpdateView, ListView
 
 from .forms import NewsCommentForm
-from .models import News, Comment
+from .models import News
 
 
 class NewsCreationFormView(CreateView):
@@ -41,11 +41,11 @@ class NewsSinglePageView(DetailView):
 
     def post(self, request, **kwargs):
         news_object = self.get_object()
-        comment = Comment(news_comment=news_object)
-        comment_form = NewsCommentForm(request.POST, instance=comment)
+        comment_form = NewsCommentForm(request.POST)
         if comment_form.is_valid():
             news_object.activity += 1
             new_comment = comment_form.save(commit=False)
+            new_comment.news_comment = news_object
             new_comment.save()
             news_object.save()
             return HttpResponseRedirect('/news_list')
