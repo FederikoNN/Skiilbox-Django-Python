@@ -16,8 +16,7 @@ class News(models.Model):
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
-        return f'"{self.title}" от {self.date_create}. Комментариев: ' \
-               f'{self.activity}'
+        return self.title
 
     class Meta:
         verbose_name = 'Новости'
@@ -33,8 +32,8 @@ class Comment(models.Model):
                                      related_name='news',
                                      verbose_name='Новость')
 
-    def __str__(self):
-        return f'{self.user_name}: "{self.description[:15]}..."'
+    # def __str__(self):
+    #     return f'{self.user_name}: "{self.description[:15]}..."'
 
     class Meta:
         verbose_name = 'Комментарий'
