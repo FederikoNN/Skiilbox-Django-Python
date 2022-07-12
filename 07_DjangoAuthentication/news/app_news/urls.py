@@ -8,7 +8,7 @@ urlpatterns = [path('', views.NewsListView.as_view()),
                path('news/<int:pk>/news_edit/',
                     views.NewsEditFormView.as_view(success_url="/news_list/")),
                path('news/<int:pk>/news_single_page/',
-                    views.NewsSinglePageView.as_view()),
+                    views.NewsSinglePageView.as_view(), name='comments'),
                path('news_list/',
                     views.NewsListView.as_view()),
                ]

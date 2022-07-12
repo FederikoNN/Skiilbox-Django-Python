@@ -1,9 +1,9 @@
 import datetime
 
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import DetailView, CreateView, UpdateView, ListView
-
+from django.urls import reverse
 from .forms import NewsCommentForm
 from .models import News
 
@@ -54,6 +54,7 @@ class NewsSinglePageView(DetailView):
                 new_comment.user_name = f'{username} (Anonymous)'
             new_comment.save()
             news_object.save()
-            return HttpResponseRedirect('/news_list')
+            return redirect(reverse('comments', kwargs={'pk': news_object.id}))
+            # return HttpResponseRedirect('/news_list')
         return render(request, 'news/news_single_page.html',
                       context={'comment_form': comment_form})
