@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Мой аккаунт</title>
+</head>
+<body>
+<h3>Мой аккаунт</h3>
+{% if request.user.is_authenticated %}
+<h4>Добро пожаловать в Ваш аккаунт, {{ request.user.username }} !</h4>
+<ul>
+  <li>
+    Username: {{ request.user.username }}
+  </li>
+  <li>
+    Имя: {{ request.user.first_name }}
+  </li>
+  <li>
+    Фамилия: {{ request.user.last_name }}
+  </li>
+  <li>
+    Телефон: {{ request.user.profile.phone }}
+  </li>
+  <li>
+    Город: {{ request.user.profile.city }}
+  </li>
+  <li>
+    Опубликованных статей: {{ request.user.profile.published_news }}
+  </li>
+  {% if request.user.profile.is_verified %}
+  <li>
+    Ваша учетная запись верифицирована
+  </li>
+  {% else %}
+  <li>
+    Ваша учетная запись не верифицирована
+  </li>
+  {% endif %}
+</ul>
+{% else %}
+Вы неавторизованы на нашем сайте. <a href="{% url 'login' %}">
+    <button>Войти</button>
+</a><br>
+{% endif %}
+</body>
+</html>
