@@ -14,8 +14,10 @@ class News(models.Model):
     activity = models.IntegerField(default=0,
                                    verbose_name='количество комментариев')
     is_active = models.BooleanField(default=False, verbose_name='Опубликовано')
-    # tags = models.ManyToManyField('Tag', blank=True, related_name='tags')
-    tag = models.CharField(max_length=20, verbose_name='тег', blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE,
+                             null=True,
+                             blank=True)
+    tags = models.ManyToManyField('Tag', blank=True, related_name='tags')
 
     def __str__(self):
         return self.title
@@ -23,13 +25,16 @@ class News(models.Model):
     class Meta:
         verbose_name = 'Новости'
         verbose_name_plural = 'Новости'
+        permissions = (
+            ('can_publish', 'Может публиковать'),
+        )
 
 
-# class Tag(models.Model):
-#     title = models.CharField(max_length=20)
-#
-#     def __str__(self):
-#         return self.title
+class Tag(models.Model):
+    title = models.CharField(max_length=20, verbose_name='Добавить тег')
+
+    def __str__(self):
+        return self.title
 
 
 class Comment(models.Model):

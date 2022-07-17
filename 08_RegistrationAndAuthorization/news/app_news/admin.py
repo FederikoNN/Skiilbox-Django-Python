@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import News, Comment
+from .models import News, Comment, Tag
 
 
 class CommentInLine(admin.TabularInline):
@@ -52,3 +52,4 @@ class CommentAdmin(admin.ModelAdmin):
 
 admin.site.register(News, NewsAdmin)
 admin.site.register(Comment, CommentAdmin)
+admin.site.register(Tag)

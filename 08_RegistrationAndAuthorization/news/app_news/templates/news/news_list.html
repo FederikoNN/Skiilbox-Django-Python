@@ -31,6 +31,13 @@
     <br>
     {% endfor %}
 </ul>
+<br>
+<p><h3>Список тегов</h3></p>
+<ul>
+    {% for tag in tags_list %}
+    <a href="{% url 'main' %}?tag={{ tag }}">{{ tag }}</a>
+    {% endfor %}
+</ul>
 {% else %}
 <p>Новостей нет</p>
 {% endif %}

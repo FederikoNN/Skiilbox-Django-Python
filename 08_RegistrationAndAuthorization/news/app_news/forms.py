@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import TextInput
 
-from .models import News, Comment
+from .models import News, Comment, Tag
 
 
 class NewsCreationForm(forms.ModelForm):
@@ -19,3 +19,9 @@ class NewsCommentForm(forms.ModelForm):
         # widgets = {
         #     'user_name': TextInput(attrs={'autocomplete': 'off'}),
         # }
+
+
+# class TagsForm(forms.ModelForm):
+#     class Meta:
+#         model = Tag
+#         fields = '__all__'

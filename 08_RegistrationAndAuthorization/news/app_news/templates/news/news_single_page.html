@@ -9,7 +9,7 @@
       <h1>{{ news.title }}</h1>
       <p>{{ news.description }}<br><br>
             <a href="/news/{{ news.id }}/news_edit/"><button>Редактировать новость</button></a>
-            Тег: <a href="{% url 'main' %}">{{ news.tag }}</a><br><br>
+            <br>
             <i>Дата публикации: </i>{{ news.date_create }}
             <i> | Комментариев: </i>{{ news.activity }}<br>
             <i>Последнее редактирование: </i>{{ news.date_edit }}

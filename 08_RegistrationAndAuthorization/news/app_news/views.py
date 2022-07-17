@@ -1,22 +1,38 @@
 import datetime
+
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.exceptions import PermissionDenied
 from django.shortcuts import render, redirect
 from django.views.generic import DetailView, CreateView, UpdateView, ListView
 from django.urls import reverse
 from .forms import NewsCommentForm
-from .models import News
+from .models import News, Tag
 
 
 class NewsCreationFormView(CreateView):
     model = News
     template_name = 'news/news_creation_page.html'
-    fields = ['title', 'description', 'tag']
+    fields = ['title', 'description', 'tags']
+    success_url = ''
+
+    def form_valid(self, form):
+        news = form.save(commit=False)
+        news.user = self.request.user
+        news.save()
+        form.save_m2m()
+        return redirect(reverse('main'))
 
 
-class NewsEditFormView(UpdateView):
+class NewsEditFormView(LoginRequiredMixin, UpdateView):
     model = News
     template_name = 'news/news_edit.html'
-    fields = ['title', 'description', 'date_edit', 'tag']
+    fields = ['title', 'description', 'date_edit', 'tags']
     initial = {'date_edit': datetime.datetime.now()}
+
+    def get_object(self, queryset=None):
+        if not self.request.user.has_perm('can_publish'):
+            raise PermissionDenied
+        return super(NewsEditFormView, self).get_object()
 
 
 class NewsListView(ListView):
@@ -25,8 +41,15 @@ class NewsListView(ListView):
     template_name = 'news/news_list.html'
     context_object_name = 'news_list'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['tags_list'] = Tag.objects.all()
+        return context
+
     def get_queryset(self):
         queryset = super(NewsListView, self).get_queryset()
+        if self.request.GET.get('tag'):
+            return queryset.filter(tags__title=self.request.GET.get('tag'))
         return queryset.filter(is_active=True)
 
 
