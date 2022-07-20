@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование профиля</title>
+</head>
+<body>
+<h2>Страница редактирования профиля пользователя</h2>
+<br>
+{% if request.user.is_authenticated %}
+<h4>Добро пожаловать в Ваш аккаунт, {{ request.user.username }} !</h4>
+<ul>
+  <li>
+    Username: {{ request.user.username }}
+  </li>
+  <li>
+    Имя: {{ request.user.first_name }}
+  </li>
+  <li>
+    Фамилия: {{ request.user.last_name }}
+  </li>
+  <li>
+    Телефон: {{ request.user.profile.phone }}
+  </li>
+  <li>
+    Город: {{ request.user.profile.city }}
+  </li>
+  <li>
+    О себе: {{ request.user.profile.about_user }}
+  </li>
+</ul>
+<h2>Редактировать:</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Внести изменения</button>
+</form>
+
+{% else %}
+Вы неавторизованы на нашем сайте. <a href="{% url 'login' %}">
+    <button>Войти</button>
+</a><br>
+{% endif %}
+
+</body>
+</html>

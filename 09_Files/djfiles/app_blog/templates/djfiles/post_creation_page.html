@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить запись</title>
+</head>
+<body>
+<h3>Добавить запись</h3>
+<br>
+{% if request.user.is_authenticated %}
+<form method="post" action="/post_creation_page/", enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Сохранить</button>
+</form>
+{% else %}
+Вы неавторизованы на нашем сайте. <a href="{% url 'login' %}">
+    <button>Войти</button>
+    {% endif %}
+</body>
+</html>
