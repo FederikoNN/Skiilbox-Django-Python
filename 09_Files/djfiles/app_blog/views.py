@@ -1,60 +1,10 @@
 from _csv import reader
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.models import User
 from django.shortcuts import redirect, reverse, render
-from django.views.generic import UpdateView, CreateView, ListView, DetailView
-from .models import Profile, Post, Gallery
-from django.contrib.auth.views import LoginView, LogoutView, FormView
-from .forms import RegisterForm, EditProfileForm, PostForm, UploadPostsForm
-
-
-class LoginForm(LoginView):
-    template_name = 'djfiles/login.html'
-
-
-class LogoutForm(LogoutView):
-    template_name = 'djfiles/logout.html'
-
-
-class SignUpForm(FormView):
-    form_class = RegisterForm
-    template_name = 'djfiles/register.html'
-    success_url = '/'
-
-    def form_valid(self, form):
-        user = form.save()
-        phone = form.cleaned_data.get('phone')
-        city = form.cleaned_data.get('city')
-        about_user = form.cleaned_data.get('about_user')
-        Profile.objects.create(
-            user=user,
-            phone=phone,
-            city=city,
-            about_user=about_user
-        )
-        # new_user = authenticate(username=self.request.POST['username'],
-        #                         password=self.request.POST['password1'])
-        # login(self.request, new_user)
-        return redirect(reverse('main'))
-
-
-class EditProfileFormView(LoginRequiredMixin, UpdateView):
-    model = User
-    form_class = EditProfileForm
-    template_name = 'djfiles/edit_profile.html'
-
-    def form_valid(self, form):
-        user = User.objects.get(id=self.request.user.id)
-        user.first_name = form.cleaned_data.get('first_name')
-        user.last_name = form.cleaned_data.get('last_name')
-        user.profile.about_user = form.cleaned_data.get('about_user')
-        user.save()
-        user.profile.save()
-        # new_user = authenticate(username=self.request.POST['username'],
-        #                         password=self.request.POST['password1'])
-        # login(self.request, new_user)
-        return redirect(reverse('main'))
+from django.views.generic import CreateView, ListView, DetailView
+from .models import Post, Gallery
+from .forms import PostForm, UploadPostsForm
 
 
 class PostCreationFormView(LoginRequiredMixin, CreateView):
