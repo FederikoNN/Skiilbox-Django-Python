@@ -25,11 +25,13 @@ class SignUpForm(FormView):
         phone = form.cleaned_data.get('phone')
         city = form.cleaned_data.get('city')
         about_user = form.cleaned_data.get('about_user')
+        avatar = form.cleaned_data.get('avatar')
         Profile.objects.create(
             user=user,
             phone=phone,
             city=city,
-            about_user=about_user
+            about_user=about_user,
+            avatar=avatar
         )
         # new_user = authenticate(username=self.request.POST['username'],
         #                         password=self.request.POST['password1'])

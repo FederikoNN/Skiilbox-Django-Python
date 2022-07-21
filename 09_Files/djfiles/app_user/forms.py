@@ -8,11 +8,12 @@ class RegisterForm(UserCreationForm):
     phone = forms.IntegerField(required=True, help_text='Телефон')
     about_user = forms.CharField(widget=forms.Textarea, required=False,
                                  help_text=' Расскажите о себе')
+    avatar = forms.ImageField(required=False)
 
     class Meta:
         model = User
         fields = (
-            'username', 'first_name', 'last_name', 'phone', 'city',
+            'username', 'first_name', 'last_name', 'avatar', 'phone', 'city',
             'about_user', 'password1', 'password2')
 
 

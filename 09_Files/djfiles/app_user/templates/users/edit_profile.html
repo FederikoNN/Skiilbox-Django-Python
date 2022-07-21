@@ -10,6 +10,11 @@
 {% if request.user.is_authenticated %}
 <h4>Добро пожаловать в Ваш аккаунт, {{ request.user.username }} !</h4>
 <ul>
+    {% if request.user.profile.avatar %}
+    <li>
+        Аватар: <img src="{{ request.user.profile.avatar.url }}" style="max-width: 2em; margin-right: 10px; border-radius: 30%">
+    </li>
+     {% endif %}
   <li>
     Username: {{ request.user.username }}
   </li>
