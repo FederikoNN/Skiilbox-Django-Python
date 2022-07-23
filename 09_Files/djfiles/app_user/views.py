@@ -43,6 +43,7 @@ class EditProfileFormView(LoginRequiredMixin, UpdateView):
     model = User
     form_class = EditProfileForm
     template_name = 'users/edit_profile.html'
+    redirect_field_name = 'login'
 
     def form_valid(self, form):
         user = User.objects.get(id=self.request.user.id)
