@@ -1,0 +1,16 @@
+{% extends "djfiles/base_i18n.html" %}
+{% block content %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Logout</title>
+</head>
+<body>
+<h2>{% trans "You are logout" %}</h2>
+<br><br>
+<center><a href="/"><button>{% trans "To Homepage" %}</button></a></center>
+</body>
+</html>
+{% endblock %}

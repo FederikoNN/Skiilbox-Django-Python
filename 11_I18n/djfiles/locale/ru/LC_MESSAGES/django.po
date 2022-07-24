@@ -1,0 +1,233 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-07-24 20:26+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: .\app_blog\apps.py:7
+msgid "blog"
+msgstr "блог"
+
+#: .\app_blog\forms.py:9
+msgid "Images"
+msgstr "Изображения"
+
+#: .\app_blog\models.py:7
+msgid "title"
+msgstr "заголовок поста"
+
+#: .\app_blog\models.py:9
+msgid "description"
+msgstr "содержание поста"
+
+#: .\app_blog\models.py:11
+msgid "date_create"
+msgstr "дата публикации"
+
+#: .\app_blog\models.py:15
+msgid "gallery"
+msgstr "галерея"
+
+#: .\app_blog\models.py:16
+msgid "attach images"
+msgstr "Прикрепить изображения"
+
+#: .\app_blog\models.py:22
+msgid "post"
+msgstr "запись"
+
+#: .\app_blog\models.py:23
+msgid "posts"
+msgstr "записи"
+
+#: .\app_blog\models.py:28 .\app_blog\models.py:31
+msgid "image"
+msgstr "Изображение"
+
+#: .\app_blog\models.py:32
+msgid "images"
+msgstr "изображение"
+
+#: .\app_blog\templates\djfiles\post_creation_page.html:8
+#: .\app_blog\templates\djfiles\post_creation_page.html:11
+msgid "Create post"
+msgstr "Добавить пост"
+
+#: .\app_blog\templates\djfiles\post_creation_page.html:17
+msgid "Save"
+msgstr "Сохранить"
+
+#: .\app_blog\templates\djfiles\post_creation_page.html:20
+msgid "You are not logged."
+msgstr "Вы не авторизованы на сайте."
+
+#: .\app_blog\templates\djfiles\post_creation_page.html:21
+#: .\app_blog\templates\djfiles\posts_list.html:23
+#: .\app_user\templates\users\edit_profile.html:49
+#: .\app_user\templates\users\login.html:15
+msgid "Login"
+msgstr "Войти"
+
+#: .\app_blog\templates\djfiles\post_single_page.html:15
+msgid "Publication date:"
+msgstr "Дата публикации"
+
+#: .\app_blog\templates\djfiles\posts_list.html:8
+#: .\app_blog\templates\djfiles\posts_list.html:30
+msgid "Post"
+msgstr "Пост"
+
+#: .\app_blog\templates\djfiles\posts_list.html:11
+msgid "Posts "
+msgstr "Записи"
+
+#: .\app_blog\templates\djfiles\posts_list.html:14
+msgid "Welcome"
+msgstr "Добро пожаловать на сайт"
+
+#: .\app_blog\templates\djfiles\posts_list.html:14
+msgid "My account"
+msgstr "Мой аккаунт"
+
+#: .\app_blog\templates\djfiles\posts_list.html:15
+msgid "Logout"
+msgstr "Выйти"
+
+#: .\app_blog\templates\djfiles\posts_list.html:19
+msgid "Create"
+msgstr "Создать"
+
+#: .\app_blog\templates\djfiles\posts_list.html:22
+#: .\app_user\templates\users\edit_profile.html:48
+msgid "You are not logged"
+msgstr "Вы вышли из системы"
+
+#: .\app_blog\templates\djfiles\posts_list.html:24
+msgid "or"
+msgstr "или"
+
+#: .\app_blog\templates\djfiles\posts_list.html:24
+#: .\app_user\templates\users\register.html:15
+msgid "Sign up"
+msgstr "Зарегистрироваться"
+
+#: .\app_blog\templates\djfiles\posts_list.html:30
+msgid "Author"
+msgstr "Автор"
+
+#: .\app_blog\templates\djfiles\posts_list.html:37
+msgid "No posts"
+msgstr "Нет записей"
+
+#: .\app_blog\templates\djfiles\upload_posts_file.html:11
+msgid "Upload file with new posts"
+msgstr "Загрузить файл с новыми записями"
+
+#: .\app_blog\templates\djfiles\upload_posts_file.html:15
+msgid "Upload"
+msgstr "Загрузить"
+
+#: .\app_user\apps.py:7
+msgid "user"
+msgstr "пользователь"
+
+#: .\app_user\forms.py:8 .\app_user\templates\users\edit_profile.html:34
+msgid "City"
+msgstr "Город"
+
+#: .\app_user\forms.py:9 .\app_user\templates\users\edit_profile.html:31
+msgid "Phone"
+msgstr "Телефон"
+
+#: .\app_user\forms.py:11 .\app_user\forms.py:24
+msgid "About you"
+msgstr " Расскажите о себе"
+
+#: .\app_user\models.py:8
+msgid "phone"
+msgstr "Телефон"
+
+#: .\app_user\models.py:9
+msgid "city"
+msgstr "город"
+
+#: .\app_user\models.py:10
+msgid "about"
+msgstr "О себе"
+
+#: .\app_user\models.py:12
+msgid "avatar"
+msgstr "Аватар"
+
+#: .\app_user\models.py:15
+msgid "user profile"
+msgstr "профиль пользователя"
+
+#: .\app_user\models.py:16
+msgid "user profiles"
+msgstr "Профили пользователей"
+
+#: .\app_user\templates\users\edit_profile.html:8
+#: .\app_user\templates\users\edit_profile.html:11
+msgid "Profile edit"
+msgstr "Редактировать профиль"
+
+#: .\app_user\templates\users\edit_profile.html:14
+msgid "Welcome in your account"
+msgstr "Добро пожаловть в Ваш аккаунт"
+
+#: .\app_user\templates\users\edit_profile.html:18
+msgid "Avatar"
+msgstr "Аватар"
+
+#: .\app_user\templates\users\edit_profile.html:25
+msgid "First name"
+msgstr "Имя"
+
+#: .\app_user\templates\users\edit_profile.html:28
+msgid "Last name"
+msgstr "Фамилия"
+
+#: .\app_user\templates\users\edit_profile.html:37
+msgid "About"
+msgstr "О себе"
+
+#: .\app_user\templates\users\edit_profile.html:40
+msgid "Edit"
+msgstr "Редактировать"
+
+#: .\app_user\templates\users\edit_profile.html:44
+msgid "Update"
+msgstr "Обновить"
+
+#: .\app_user\templates\users\login.html:11
+msgid "Login page"
+msgstr "Страница входа"
+
+#: .\app_user\templates\users\logout.html:11
+msgid "You are logout"
+msgstr "Вы вышли из системы"
+
+#: .\app_user\templates\users\logout.html:13
+msgid "To Homepage"
+msgstr "Перейти на главную страницу"
+
+#: .\app_user\templates\users\register.html:11
+msgid "New User registration"
+msgstr "Регистрация нового пользователя"

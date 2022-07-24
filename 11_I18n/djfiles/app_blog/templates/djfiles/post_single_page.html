@@ -1,0 +1,22 @@
+{% extends "djfiles/base_i18n.html" %}
+{% block content %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ object.title }}</title>
+</head>
+<body>
+
+      <h1>{{ post.title }}</h1>
+      <p>{{ post.description }}<br><br>
+            <br>
+            <i>{% trans "Publication date:" %} </i>{{ post.date_create }}
+      </p>
+    {% for image in images %}
+        <img src="{{ media_url }}{{ image.image.url }}" width="250">
+    {% endfor %}
+</body>
+</html>
+{% endblock %}

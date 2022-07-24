@@ -1,0 +1,55 @@
+{% extends "djfiles/base_i18n.html" %}
+{% block content %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% trans "Profile edit" %}</title>
+</head>
+<body>
+<h2>{% trans "Profile edit" %}</h2>
+<br>
+{% if request.user.is_authenticated %}
+<h4>{% trans "Welcome in your account" %}, {{ request.user.username }} !</h4>
+<ul>
+    {% if request.user.profile.avatar %}
+    <li>
+        {% trans "Avatar" %}: <img src="{{ request.user.profile.avatar.url }}" style="max-width: 2em; margin-right: 10px; border-radius: 30%">
+    </li>
+     {% endif %}
+  <li>
+    Username: {{ request.user.username }}
+  </li>
+  <li>
+    {% trans "First name" %}: {{ request.user.first_name }}
+  </li>
+  <li>
+    {% trans "Last name" %}: {{ request.user.last_name }}
+  </li>
+  <li>
+    {% trans "Phone" %}: {{ request.user.profile.phone }}
+  </li>
+  <li>
+    {% trans "City" %}: {{ request.user.profile.city }}
+  </li>
+  <li>
+    {% trans "About" %}: {{ request.user.profile.about_user }}
+  </li>
+</ul>
+<h2>{% trans "Edit" %}:</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">{% trans "Update" %}</button>
+</form>
+
+{% else %}
+{% trans "You are not logged" %}. <a href="{% url 'login' %}">
+    <button>{% trans "Login" %}</button>
+</a><br>
+{% endif %}
+
+</body>
+</html>
+{% endblock %}

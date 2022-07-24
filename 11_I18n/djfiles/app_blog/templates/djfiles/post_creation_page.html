@@ -1,0 +1,25 @@
+{% extends "djfiles/base_i18n.html" %}
+{% block content %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% trans "Create post" %}</title>
+</head>
+<body>
+<h3>{% trans "Create post" %}</h3>
+<br>
+{% if request.user.is_authenticated %}
+<form method="post" action="/post_creation_page/", enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">{% trans "Save" %}</button>
+</form>
+{% else %}
+{% trans "You are not logged." %} <a href="{% url 'login' %}">
+    <button>{% trans "Login" %}</button>
+    {% endif %}
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "djfiles/base_i18n.html" %}
+{% block content %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload posts</title>
+</head>
+<body>
+<h2>{% trans "Upload file with new posts" %}</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">{% trans "Upload" %}</button>
+</form>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "djfiles/base_i18n.html" %}
+{% block content %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% trans "Post" %}</title>
+</head>
+<body>
+<h1>{% trans "Posts " %}</h1>
+<br>
+{% if request.user.is_authenticated %}
+{% trans "Welcome" %}, {{ request.user.username }} ! <a href="/{{ user.id }}/edit_profile/">{% trans "My account" %}</a>   <a href="{% url 'logout' %}">
+    <button>{% trans "Logout" %}</button>
+</a><br>
+<br>
+<a href="/post_creation_page/">
+    <button>{% trans "Create" %}</button>
+</a>
+{% else %}
+{% trans "You are not logged" %}. <a href="{% url 'login' %}">
+    <button>{% trans "Login" %}</button>
+</a><br> {% trans "or" %} <a href="{% url 'register' %}"><button>{% trans "Sign up" %}</button></a>
+{% endif %}
+{% if posts_list %}
+<ul>
+    {% for post in posts_list %}
+    <li>
+        {% trans "Author" %}: {{ post.user.username }} | <i>{% trans "Post" %}: </i><a href="/{{ post.id }}/post_single_page/">{{ post.description|truncatechars:100 }}</a>
+    </li>
+    <br>
+    {% endfor %}
+</ul>
+<br>
+{% else %}
+<p>{% trans "No posts" %}</p>
+{% endif %}
+</body>
+</html>
+{% endblock %}
