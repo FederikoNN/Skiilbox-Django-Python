@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-26 12:58+0300\n"
+"POT-Creation-Date: 2022-07-26 18:14+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,45 +20,81 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: .\app_shop\models.py:9
+#: .\app_shop\apps.py:7 .\app_shop\models.py:56
+msgid "shop"
+msgstr "магазин"
+
+#: .\app_shop\models.py:9 .\app_shop\models.py:12
 msgid "balance"
 msgstr "баланс"
 
 #: .\app_shop\models.py:13
+msgid "balances"
+msgstr "балансы пользователей"
+
+#: .\app_shop\models.py:17
 msgid "title promo"
 msgstr "название акции"
 
-#: .\app_shop\models.py:14
+#: .\app_shop\models.py:18
 msgid "terms of promo"
 msgstr "условия акции"
 
-#: .\app_shop\models.py:19
+#: .\app_shop\models.py:21
+msgid "promotion"
+msgstr "акция"
+
+#: .\app_shop\models.py:22
+msgid "promotions"
+msgstr "акции"
+
+#: .\app_shop\models.py:27
 msgid "offer description"
 msgstr "содержание предложения"
 
-#: .\app_shop\models.py:22
+#: .\app_shop\models.py:30
 msgid "offer to user"
 msgstr "предложение пользователю"
 
-#: .\app_shop\models.py:27
+#: .\app_shop\models.py:34
+msgid "offer"
+msgstr "персональное предложение"
+
+#: .\app_shop\models.py:35
+msgid "offers"
+msgstr "Персональные предложения"
+
+#: .\app_shop\models.py:39
 msgid "purchase name"
 msgstr "наименование покупки"
 
-#: .\app_shop\models.py:28
+#: .\app_shop\models.py:40
 msgid "purchase price"
 msgstr "стоимость покупки"
 
-#: .\app_shop\models.py:31
+#: .\app_shop\models.py:43
 msgid "buyer"
 msgstr "покупатель"
 
-#: .\app_shop\models.py:36
+#: .\app_shop\models.py:47
+msgid "purchase"
+msgstr "Покупка"
+
+#: .\app_shop\models.py:48
+msgid "purchases"
+msgstr "покупки"
+
+#: .\app_shop\models.py:52
 msgid "shop name"
 msgstr "наименование магазина"
 
-#: .\app_shop\models.py:37
+#: .\app_shop\models.py:53
 msgid "shop address"
 msgstr "адрес магазина"
+
+#: .\app_shop\models.py:57
+msgid "shops"
+msgstr "магазины"
 
 #: .\app_shop\templates\shop\shop_list.html:8
 #: .\app_shop\templates\shop\shop_list.html:11
