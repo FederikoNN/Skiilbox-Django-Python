@@ -1,0 +1,221 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-07-26 12:58+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: .\app_shop\models.py:9
+msgid "balance"
+msgstr "баланс"
+
+#: .\app_shop\models.py:13
+msgid "title promo"
+msgstr "название акции"
+
+#: .\app_shop\models.py:14
+msgid "terms of promo"
+msgstr "условия акции"
+
+#: .\app_shop\models.py:19
+msgid "offer description"
+msgstr "содержание предложения"
+
+#: .\app_shop\models.py:22
+msgid "offer to user"
+msgstr "предложение пользователю"
+
+#: .\app_shop\models.py:27
+msgid "purchase name"
+msgstr "наименование покупки"
+
+#: .\app_shop\models.py:28
+msgid "purchase price"
+msgstr "стоимость покупки"
+
+#: .\app_shop\models.py:31
+msgid "buyer"
+msgstr "покупатель"
+
+#: .\app_shop\models.py:36
+msgid "shop name"
+msgstr "наименование магазина"
+
+#: .\app_shop\models.py:37
+msgid "shop address"
+msgstr "адрес магазина"
+
+#: .\app_shop\templates\shop\shop_list.html:8
+#: .\app_shop\templates\shop\shop_list.html:11
+msgid "Shops"
+msgstr "Магазины"
+
+#: .\app_shop\templates\shop\shop_list.html:14
+msgid "Welcome"
+msgstr "Добро пожаловать"
+
+#: .\app_shop\templates\shop\shop_list.html:14
+#: .\app_shop\templates\users\my_account.html:9
+#: .\app_shop\templates\users\my_account.html:12
+msgid "My account"
+msgstr "Личный кабинет"
+
+#: .\app_shop\templates\shop\shop_list.html:15
+msgid "Logout"
+msgstr "Выйти"
+
+#: .\app_shop\templates\shop\shop_list.html:19
+#: .\app_shop\templates\users\my_account.html:80
+msgid "You are not logged"
+msgstr "Вы неавторизованы"
+
+#: .\app_shop\templates\shop\shop_list.html:20
+#: .\app_shop\templates\users\login.html:15
+#: .\app_shop\templates\users\my_account.html:81
+msgid "Login"
+msgstr "Войти"
+
+#: .\app_shop\templates\shop\shop_list.html:21
+msgid "or"
+msgstr "или"
+
+#: .\app_shop\templates\shop\shop_list.html:21
+#: .\app_shop\templates\users\register.html:15
+msgid "Sign up"
+msgstr "Зарегистрироваться"
+
+#: .\app_shop\templates\shop\shop_list.html:23
+msgid "Shop list"
+msgstr "Список магазинов"
+
+#: .\app_shop\templates\shop\shop_list.html:28
+msgid "Shop"
+msgstr "Магазин"
+
+#: .\app_shop\templates\shop\shop_list.html:28
+msgid "Address"
+msgstr "адрес магазина"
+
+#: .\app_shop\templates\shop\shop_list.html:34
+msgid "No shops"
+msgstr "Список магазинов пуст"
+
+#: .\app_shop\templates\users\login.html:11
+msgid "Login page"
+msgstr "Страница регистрации"
+
+#: .\app_shop\templates\users\logout.html:11
+msgid "You are logout"
+msgstr "Вы вышли из системы"
+
+#: .\app_shop\templates\users\logout.html:13
+msgid "To Homepage"
+msgstr "Перейти на главную страницу"
+
+#: .\app_shop\templates\users\my_account.html:15
+msgid "Welcome in your account"
+msgstr "Добро пожаловать в личный кабинет"
+
+#: .\app_shop\templates\users\my_account.html:21
+msgid "First name"
+msgstr "Имя"
+
+#: .\app_shop\templates\users\my_account.html:24
+msgid "Last name"
+msgstr "Фамилия"
+
+#: .\app_shop\templates\users\my_account.html:27
+msgid "Balance"
+msgstr "Баланс"
+
+#: .\app_shop\templates\users\my_account.html:30
+msgid "Promotions"
+msgstr "Акции"
+
+#: .\app_shop\templates\users\my_account.html:35
+msgid "Promotion"
+msgstr "Акция"
+
+#: .\app_shop\templates\users\my_account.html:36
+msgid "Terms"
+msgstr "Условия акции"
+
+#: .\app_shop\templates\users\my_account.html:41
+msgid "No promotions"
+msgstr "На настоящий момент акций нет"
+
+#: .\app_shop\templates\users\my_account.html:46
+msgid "Offers"
+msgstr "Персональные предложения"
+
+#: .\app_shop\templates\users\my_account.html:56
+msgid "No offers"
+msgstr "Предложений нет"
+
+#: .\app_shop\templates\users\my_account.html:61
+msgid "Purchases"
+msgstr "Покупки"
+
+#: .\app_shop\templates\users\my_account.html:68
+msgid "Name"
+msgstr "Наименование"
+
+#: .\app_shop\templates\users\my_account.html:68
+msgid "Price"
+msgstr "Цена"
+
+#: .\app_shop\templates\users\my_account.html:73
+msgid "No purchases"
+msgstr "Список покупок пуст"
+
+#: .\app_shop\templates\users\register.html:11
+msgid "New User registration"
+msgstr "Регистрация нового пользователя"
+
+#~ msgid "Publication date:"
+#~ msgstr "Дата публикации"
+
+#~ msgid "Post"
+#~ msgstr "Запись"
+
+#~ msgid "Posts "
+#~ msgstr "Записи"
+
+#~ msgid "Create"
+#~ msgstr "Создать"
+
+#~ msgid "Author"
+#~ msgstr "автор"
+
+#~ msgid "Profile edit"
+#~ msgstr "Личный кабинет"
+
+#~ msgid "Phone"
+#~ msgstr "Баланс счета"
+
+#~ msgid "City"
+#~ msgstr "город"
+
+#~ msgid "About"
+#~ msgstr "о"
+
+#~ msgid "Edit"
+#~ msgstr "редактировать"
+
+#~ msgid "Update"
+#~ msgstr "Обновить"

@@ -1,0 +1,87 @@
+{% extends "shop/base_i18n.html" %}
+{% load cache %}
+{% block content %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% trans "My account" %}</title>
+</head>
+<body>
+<h2>{% trans "My account" %}</h2>
+<br>
+{% if request.user.is_authenticated %}
+<h4>{% trans "Welcome in your account" %}, {{ user.username }} !</h4>
+<ul>
+  <li>
+    Username: {{ user.username }}
+  </li>
+  <li>
+    {% trans "First name" %}: {{ user.first_name }}
+  </li>
+  <li>
+    {% trans "Last name" %}: {{ user.last_name }}
+  </li>
+  <li>
+    <b><i><u>{% trans "Balance" %}:</u></i></b> {{ user.balance.balance }}
+  </li>
+
+<h2>{% trans "Promotions" %}:</h2>
+  {% if promo_list %}
+
+  {% for promo in promo_list %}
+  <li>
+    {% trans "Promotion" %}: {{ promo.title }}
+    {% trans "Terms" %}: {{ promo.terms }}
+  </li>
+  {% endfor %}
+  {% else %}
+  <li>
+  {% trans "No promotions" %}
+  </li>
+
+{% endif %}
+
+<h2>{% trans "Offers" %}:</h2>
+  {% if offers %}
+
+  {% for offer in offers %}
+  <li>
+    {{ offer.description }}
+  </li>
+  {% endfor %}
+  {% else %}
+  <li>
+  {% trans "No offers" %}
+  </li>
+
+{% endif %}
+
+<h2>{% trans "Purchases" %}:</h2>
+  {% cache 20 purchases %}
+  {% block purchases %}
+  {% if purchases %}
+
+  {% for purchase in purchases %}
+  <li>
+    {% trans "Name" %}: {{ purchase.name }} | {% trans "Price" %}: {{ purchase.price }}
+  </li>
+  {% endfor %}
+  {% else %}
+  <li>
+  {% trans "No purchases" %}
+  </li>
+</ul>
+{% endif %}
+{% endblock %}
+  {% endcache %}
+{% else %}
+{% trans "You are not logged" %}. <a href="{% url 'login' %}">
+    <button>{% trans "Login" %}</button>
+</a><br>
+{% endif %}
+
+</body>
+</html>
+{% endblock %}

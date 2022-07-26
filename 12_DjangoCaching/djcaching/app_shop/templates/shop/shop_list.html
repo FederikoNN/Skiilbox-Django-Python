@@ -1,0 +1,38 @@
+{% extends "shop/base_i18n.html" %}
+{% block content %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% trans "Shops" %}</title>
+</head>
+<body>
+<h1>{% trans "Shops" %}</h1>
+<br>
+{% if request.user.is_authenticated %}
+{% trans "Welcome" %}, {{ request.user.username }} ! <a href="/{{ user.id }}/my_account/">{% trans "My account" %}</a>   <a href="{% url 'logout' %}">
+    <button>{% trans "Logout" %}</button>
+</a><br>
+<br>
+{% else %}
+{% trans "You are not logged" %}. <a href="{% url 'login' %}">
+    <button>{% trans "Login" %}</button>
+</a><br> {% trans "or" %} <a href="{% url 'register' %}"><button>{% trans "Sign up" %}</button></a>
+{% endif %}
+<h2>{% trans "Shop list" %}</h2>
+{% if shop_list %}
+<ul>
+    {% for shop in shop_list %}
+    <li>
+        {% trans "Shop" %}: {{ shop.name }} | <i>{% trans "Address" %}: {{ shop.address }}
+    </li>
+    {% endfor %}
+</ul>
+<br>
+{% else %}
+<p>{% trans "No shops" %}</p>
+{% endif %}
+</body>
+</html>
+{% endblock %}
