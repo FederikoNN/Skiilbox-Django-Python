@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-26 18:14+0300\n"
+"POT-Creation-Date: 2022-07-27 12:18+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -106,8 +106,8 @@ msgid "Welcome"
 msgstr "Добро пожаловать"
 
 #: .\app_shop\templates\shop\shop_list.html:14
-#: .\app_shop\templates\users\my_account.html:9
-#: .\app_shop\templates\users\my_account.html:12
+#: .\app_users\templates\users\my_account.html:9
+#: .\app_users\templates\users\my_account.html:12
 msgid "My account"
 msgstr "Личный кабинет"
 
@@ -116,13 +116,13 @@ msgid "Logout"
 msgstr "Выйти"
 
 #: .\app_shop\templates\shop\shop_list.html:19
-#: .\app_shop\templates\users\my_account.html:80
+#: .\app_users\templates\users\my_account.html:80
 msgid "You are not logged"
 msgstr "Вы неавторизованы"
 
 #: .\app_shop\templates\shop\shop_list.html:20
-#: .\app_shop\templates\users\login.html:15
-#: .\app_shop\templates\users\my_account.html:81
+#: .\app_users\templates\users\login.html:15
+#: .\app_users\templates\users\my_account.html:81
 msgid "Login"
 msgstr "Войти"
 
@@ -131,7 +131,7 @@ msgid "or"
 msgstr "или"
 
 #: .\app_shop\templates\shop\shop_list.html:21
-#: .\app_shop\templates\users\register.html:15
+#: .\app_users\templates\users\register.html:15
 msgid "Sign up"
 msgstr "Зарегистрироваться"
 
@@ -151,75 +151,79 @@ msgstr "адрес магазина"
 msgid "No shops"
 msgstr "Список магазинов пуст"
 
-#: .\app_shop\templates\users\login.html:11
+#: .\app_users\apps.py:9
+msgid "user"
+msgstr "пользователь"
+
+#: .\app_users\templates\users\login.html:11
 msgid "Login page"
 msgstr "Страница регистрации"
 
-#: .\app_shop\templates\users\logout.html:11
+#: .\app_users\templates\users\logout.html:11
 msgid "You are logout"
 msgstr "Вы вышли из системы"
 
-#: .\app_shop\templates\users\logout.html:13
+#: .\app_users\templates\users\logout.html:13
 msgid "To Homepage"
 msgstr "Перейти на главную страницу"
 
-#: .\app_shop\templates\users\my_account.html:15
+#: .\app_users\templates\users\my_account.html:15
 msgid "Welcome in your account"
 msgstr "Добро пожаловать в личный кабинет"
 
-#: .\app_shop\templates\users\my_account.html:21
+#: .\app_users\templates\users\my_account.html:21
 msgid "First name"
 msgstr "Имя"
 
-#: .\app_shop\templates\users\my_account.html:24
+#: .\app_users\templates\users\my_account.html:24
 msgid "Last name"
 msgstr "Фамилия"
 
-#: .\app_shop\templates\users\my_account.html:27
+#: .\app_users\templates\users\my_account.html:27
 msgid "Balance"
 msgstr "Баланс"
 
-#: .\app_shop\templates\users\my_account.html:30
+#: .\app_users\templates\users\my_account.html:30
 msgid "Promotions"
 msgstr "Акции"
 
-#: .\app_shop\templates\users\my_account.html:35
+#: .\app_users\templates\users\my_account.html:35
 msgid "Promotion"
 msgstr "Акция"
 
-#: .\app_shop\templates\users\my_account.html:36
+#: .\app_users\templates\users\my_account.html:36
 msgid "Terms"
 msgstr "Условия акции"
 
-#: .\app_shop\templates\users\my_account.html:41
+#: .\app_users\templates\users\my_account.html:41
 msgid "No promotions"
 msgstr "На настоящий момент акций нет"
 
-#: .\app_shop\templates\users\my_account.html:46
+#: .\app_users\templates\users\my_account.html:46
 msgid "Offers"
 msgstr "Персональные предложения"
 
-#: .\app_shop\templates\users\my_account.html:56
+#: .\app_users\templates\users\my_account.html:56
 msgid "No offers"
 msgstr "Предложений нет"
 
-#: .\app_shop\templates\users\my_account.html:61
+#: .\app_users\templates\users\my_account.html:61
 msgid "Purchases"
 msgstr "Покупки"
 
-#: .\app_shop\templates\users\my_account.html:68
+#: .\app_users\templates\users\my_account.html:68
 msgid "Name"
 msgstr "Наименование"
 
-#: .\app_shop\templates\users\my_account.html:68
+#: .\app_users\templates\users\my_account.html:68
 msgid "Price"
 msgstr "Цена"
 
-#: .\app_shop\templates\users\my_account.html:73
+#: .\app_users\templates\users\my_account.html:73
 msgid "No purchases"
 msgstr "Список покупок пуст"
 
-#: .\app_shop\templates\users\register.html:11
+#: .\app_users\templates\users\register.html:11
 msgid "New User registration"
 msgstr "Регистрация нового пользователя"
 
