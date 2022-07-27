@@ -42,15 +42,13 @@ class MyAccountView(LoginRequiredMixin, DetailView):
         offers = self.object.user.all()
         promotions_cache_key = f'promotions:{self.object.username}'
         offers_cache_key = f'offers:{self.object.username}'
-        cache.get_or_set(promotions_cache_key, promotions, 10 * 60)
-        cache.get_or_set(offers_cache_key, offers, 10 * 60)
-        # user_account_cache_data = {
-        #     promotions_cache_key: promotions,
-        #     offers_cache_key: offers
-        # }
-        # cache.set_many(user_account_cache_data)
+        promo_list = cache.get_or_set(promotions_cache_key, promotions, 10 * 60)
+        offers_list = cache.get_or_set(offers_cache_key, offers, 10 * 60)
         context['user'] = self.object
-        context['promo_list'] = promotions
-        context['offers'] = offers
+        context['promo_list'] = promo_list
+        context['offers'] = offers_list
+        # context['promo_list'] = cache.get_or_set(promotions_cache_key,
+        #                                          promotions, 10 * 60)
+        # context['offers'] = cache.get_or_set(offers_cache_key, offers, 10 * 60)
         context['purchases'] = self.object.buyer.all()
         return context
