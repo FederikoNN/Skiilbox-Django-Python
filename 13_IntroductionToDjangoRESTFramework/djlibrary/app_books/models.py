@@ -2,6 +2,7 @@ from django.db import models
 
 
 class Author(models.Model):
+    """Модель автора"""
     first_name = models.CharField(max_length=20, verbose_name='first_name')
     last_name = models.CharField(max_length=30, verbose_name='last_name')
     birth_year = models.IntegerField(verbose_name='birth_year')
@@ -16,6 +17,7 @@ class Author(models.Model):
 
 
 class Book(models.Model):
+    """Модель книги"""
     title = models.CharField(max_length=50, verbose_name='title')
     isbn = models.CharField(max_length=20, verbose_name='isdn')
     edition_year = models.IntegerField(verbose_name='edition_year')

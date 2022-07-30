@@ -1,12 +1,10 @@
-# from django.conf.urls.static import static
 from django.urls import path
-from .views import AuthorList, BookList
-# from django.conf import settings
+from .views import AuthorList, BookList, AuthorDetail, BookDetail
+
 
 urlpatterns = [
     path('authors/', AuthorList.as_view(), name='authors_list'),
     path('books/', BookList.as_view(), name='books_list'),
-    # path('register/', SignUpForm.as_view(), name='register'),
-    # path('<int:pk>/my_account/', MyAccountView.as_view(),
-    #      name='my_account'),
+    path('authors/<int:pk>/', AuthorDetail.as_view(), name='author_detail'),
+    path('books/<int:pk>/', BookDetail.as_view(), name='book_detail'),
 ]
