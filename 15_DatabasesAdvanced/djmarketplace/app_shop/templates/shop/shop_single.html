@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Shop Items</title>
+</head>
+<body>
+<h1>Shop Items</h1>
+<br>
+{% if request.user.is_authenticated %}
+Welcome, {{ request.user.username }} ! <a href="/{{ user.id }}/my_account/">My account</a>   <a href="{% url 'logout' %}">
+    <button>Logout</button>
+</a><br>
+<br>
+{% else %}
+You are not logged. <a href="{% url 'login' %}">
+    <button>Login</button>
+</a><br> or <a href="{% url 'register' %}"><button>Sign up</button></a>
+{% endif %}
+<h2>Shop Item list</h2>
+{% if shop_items %}
+<table border="1">
+    {% for item in shop_items %}
+    <tr>
+        <td><a href="{{ item.items.id }}/item_single/">{{ item.items.name }}</a></td>
+        <td>
+            {{ item.quantity }}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<br>
+{% else %}
+<p>No items</p>
+{% endif %}
+<br>
+<a href="{% url 'cart' %}"><button>To cart</button></a>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+</head>
+<body>
+    <h3>Cart</h3>
+    <br>
+<ul>
+    {% for cart in cart_list %}
+    <li>{{ cart.product.name }} - {{ cart.quantity }} pcs. Cost: {{ cart.total_cost }}</li>
+    {% endfor %}
+    <br>
+    Total cost: {{ cart_cost }}
+</ul>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" name="pay" value="pay">Pay</button>
+    <button type="submit" name="refuse" value="refuse">Refuse</button>
+</form>
+
+</body>
+</html>

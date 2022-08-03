@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ object.name }}</title>
+</head>
+<body>
+
+      <h1>{{ item.name }}</h1>
+            <i>Price: </i>{{ item.price }}
+            <i>Quantity: </i>{{ items_shop.quantity }}
+<br>
+      <h2>Add to cart:</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ cart_form.as_p }}
+        <button type="submit">Add tos Cart</button>
+    </form>
+
+</body>
+</html>
