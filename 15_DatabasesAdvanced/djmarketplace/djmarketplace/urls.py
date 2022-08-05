@@ -15,9 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+import debug_toolbar
+
+
+def trigger_error(request):
+    division_by_zero = 1 / 0
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('app_users.urls')),
     path('', include('app_shop.urls')),
+    path('__debug__/', include(debug_toolbar.urls)),
+    path('sentry-debug/', trigger_error),
 ]

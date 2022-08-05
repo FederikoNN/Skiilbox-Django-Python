@@ -1,9 +1,14 @@
+import datetime
+
 from django.shortcuts import redirect, reverse
 from django.views.generic import ListView, DetailView
 from .models import Item, Shop, ItemInShop, Cart, Purchase
 from .forms import CartViewForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Sum, F
+import logging
+
+logger = logging.getLogger(__name__)
 
 BONUS = 10  # Bonus in percent
 
@@ -44,13 +49,24 @@ class CartView(LoginRequiredMixin, ListView):
         context['cart_list'] = cart
         context['cart_cost'] = cart.aggregate(
             total=Sum(F('product__price') * F('quantity')))['total']
+        if cart:
+            logger.info(
+                f'{datetime.datetime.now()} User {self.request.user} placed an '
+                f'order')
         return context
 
     def post(self, request, *args, **kwargs):
         cart = Cart.objects.filter(user_id=request.user.id)
         user = request.user
+        status = user.account.status
+        status_previous = user.account.status_previous
+        if status != status_previous:
+            user.account.status_previous = status
+            user.account.save(update_fields=['status_previous'])
         if 'pay' in request.POST:
+            total_cost = 0
             for item in cart:
+                total_cost += item.total_cost
                 item_in_shop = ItemInShop.objects.get(shop=item.shop,
                                                       items=item.product)
                 Purchase.objects.create(
@@ -66,6 +82,10 @@ class CartView(LoginRequiredMixin, ListView):
                 user.account.save()
                 item_in_shop.save()
                 item.delete()
+            logger.info(
+                f'{datetime.datetime.now()}  Debiting {total_cost} from the '
+                f'balance of user '
+                f'{user.username}')
         elif 'refuse' in request.POST:
             for item in cart:
                 item.delete()
@@ -78,8 +98,9 @@ class ShopSingleView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['shop_items'] = ItemInShop.objects.filter(
-            shop_id=self.kwargs['pk_shop'])
+        context['shop_items'] = ItemInShop.objects.select_related('shop',
+                                                                  'items').filter(
+            shop_id=self.kwargs['pk_shop']).all()
         return context
 
 

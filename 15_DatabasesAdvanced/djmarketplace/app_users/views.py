@@ -1,3 +1,5 @@
+import datetime
+
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
@@ -6,10 +8,19 @@ from django.views.generic import DetailView, UpdateView, ListView
 from .models import Account
 from django.contrib.auth.views import LoginView, LogoutView, FormView
 from .forms import RegisterForm, DepositForm
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class LoginForm(LoginView):
     template_name = 'users/login.html'
+
+    def get_success_url(self):
+        logger.info(
+            f'{datetime.datetime.now()} Login user '
+            f'{self.request.user.username}')
+        return self.get_redirect_url() or self.get_default_redirect_url()
 
 
 class LogoutForm(LogoutView):
@@ -34,26 +45,6 @@ class MyAccountView(LoginRequiredMixin, DetailView):
     template_name = 'users/my_account.html'
     context_object_name = 'my account'
 
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     promo = apps.get_model('app_shop', 'Promo')
-    #     promotions = promo.objects.all()
-    #     offers = self.object.user.all()
-    #     promotions_cache_key = f'promotions:{self.object.username}'
-    #     offers_cache_key = f'offers:{self.object.username}'
-    #     promo_list = cache.get_or_set(promotions_cache_key, promotions,
-    #     10 * 60)
-    #     offers_list = cache.get_or_set(offers_cache_key, offers, 10 * 60)
-    #     context['user'] = self.object
-    #     context['promo_list'] = promo_list
-    #     context['offers'] = offers_list
-    # context['promo_list'] = cache.get_or_set(promotions_cache_key,
-    #                                          promotions, 10 * 60)
-    # context['offers'] = cache.get_or_set(offers_cache_key, offers,
-    # 10 * 60)
-    # context['purchases'] = self.object.buyer.all()
-    # return context
-
 
 class DepositView(LoginRequiredMixin, UpdateView):
     model = Account
@@ -64,6 +55,8 @@ class DepositView(LoginRequiredMixin, UpdateView):
         account = self.request.user.account
         account.balance += self.object.balance
         account.save(update_fields=['balance'])
+        logger.info(
+            f'{datetime.datetime.now()} User {self.request.user.username} '
+            f'deposit to balance on {self.object.balance}.')
         return redirect(
             reverse('my_account', kwargs={'pk': self.request.user.id}))
-
